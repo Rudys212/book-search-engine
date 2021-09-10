@@ -14,9 +14,10 @@ const server = new ApolloServer({
 
 const app = express();
 
-server.start().then(() => {
+async () => {
+  await server.start();
   server.applyMiddleware({ app });
-});
+};
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
